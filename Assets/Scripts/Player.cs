@@ -1,9 +1,10 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IKitchenObjectParent
+public class Player : NetworkBehaviour, IKitchenObjectParent
 {
-    public static Player Instance { get; private set; }
+    // public static Player Instance { get; private set; }
 
     public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectCounterChangedEventArgs> OnSelectCounterChanged;
@@ -13,7 +14,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     }
 
     [SerializeField] private float moveSpeed = default;
-    [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
 
@@ -24,17 +24,19 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Awake()
     {
-        Instance = this;
+        // Instance = this;
     }
 
     private void Start()
     {
-        gameInput.OnInteractAction += GameInput_OnInteractAction;
-        gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+        GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+        GameInput.Instance.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
 
     private void Update()
     {
+        if (!IsOwner) return;
+                    
         HandleInteractions();
         HandleMovement();
     }
@@ -126,7 +128,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
                 }
                 else
                 {
-        
+
                 }
             }
         }
@@ -138,12 +140,16 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
         isWalking = moveDir != Vector3.zero;
         float rotateSpeed = 10f;
-        transform.forward = Vector3.Slerp(transform.forward, GetMoveDirection(), Time.deltaTime * rotateSpeed);
+
+        if (GetMoveDirection() != Vector3.zero)
+        {
+            transform.forward = Vector3.Slerp(transform.forward, GetMoveDirection(), Time.deltaTime * rotateSpeed);
+        }
     }
 
     private Vector3 GetMoveDirection()
     {
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector2 inputVector = GameInput.Instance.GetMovementVectorNormalized();
         return new Vector3(inputVector.x, 0f, inputVector.y);
     }
 
