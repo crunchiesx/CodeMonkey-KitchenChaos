@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a61e5036dd81e94ab9967765b0d0f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   counterTopPoint: {fileID: 824796517815013052}
   fryingRecipeSOArray:
   - {fileID: 11400000, guid: 77b976d63644bc7449cb4016baa3a820, type: 2}

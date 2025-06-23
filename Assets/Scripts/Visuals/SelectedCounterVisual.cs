@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SelectedCounterVisual : MonoBehaviour
@@ -7,7 +8,23 @@ public class SelectedCounterVisual : MonoBehaviour
 
     private void Start()
     {
-        // Player.Instance.OnSelectCounterChanged += Player_OnSelectCounterChanged;
+        if (Player.LocalInstance != null)
+        {
+            Player.LocalInstance.OnSelectCounterChanged += Player_OnSelectCounterChanged;
+        }
+        else
+        {
+            Player.OnAnyPlayerSpawned += Player_OnAnyPlayerSpawned;
+        }
+    }
+
+    private void Player_OnAnyPlayerSpawned(object sender, EventArgs e)
+    {
+        if (Player.LocalInstance != null)
+        {
+            Player.LocalInstance.OnSelectCounterChanged -= Player_OnSelectCounterChanged;
+            Player.LocalInstance.OnSelectCounterChanged += Player_OnSelectCounterChanged;
+        }
     }
 
     private void Player_OnSelectCounterChanged(object sender, Player.OnSelectCounterChangedEventArgs e)

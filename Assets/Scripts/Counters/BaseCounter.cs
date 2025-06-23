@@ -1,8 +1,8 @@
 using System;
-using Unity.Multiplayer.Center.Common.Analytics;
+using Unity.Netcode;
 using UnityEngine;
 
-public class BaseCounter : MonoBehaviour, IKitchenObjectParent
+public class BaseCounter : NetworkBehaviour, IKitchenObjectParent
 {
     public static event EventHandler OnAnyObjectPlacedHere;
 
@@ -22,7 +22,7 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 
     public virtual void InteractAlternate()
     {
-        // Debug.LogError("BaseCounter.InteractAlternate();");
+        // // Debug.LogError("BaseCounter.InteractAlternate();");
     }
 
     public Transform GetKitchenObjectFollowTransform()
@@ -53,5 +53,10 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     public bool HasKitchenObject()
     {
         return kitchenObject != null;
+    }
+
+    public NetworkObject GetNetworkObject()
+    {
+        return NetworkObject;
     }
 }

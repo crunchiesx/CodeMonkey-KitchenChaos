@@ -165,7 +165,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4104134591277117559}
+  - component: {fileID: -7412946003479070405}
   - component: {fileID: -584613627033986353}
+  - component: {fileID: -4251147991318407623}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -191,6 +193,31 @@ Transform:
   - {fileID: 7826529190333790095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-7412946003479070405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022962234794108188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3047874400
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &-584613627033986353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271bc993819c3964991d87eaf32ae00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   kitchenObjectSO: {fileID: 11400000, guid: e0d0f8ec9cfeeb347b281655482c99d2, type: 2}
   validKitchenObjectSOList:
   - {fileID: 11400000, guid: c220e16efafb93340aecc9e5358361b8, type: 2}
@@ -211,6 +239,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 44a7701b3e4c5874c8bcbc4222522cf1, type: 2}
   - {fileID: 11400000, guid: 8b7632428edbfb74fa526791e3f5898c, type: 2}
   - {fileID: 11400000, guid: f6b1b10acca7837479365ff4cc591bed, type: 2}
+--- !u!114 &-4251147991318407623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022962234794108188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330c1b07c239da24888b1539a17453ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4380761314528431941
 GameObject:
   m_ObjectHideFlags: 0

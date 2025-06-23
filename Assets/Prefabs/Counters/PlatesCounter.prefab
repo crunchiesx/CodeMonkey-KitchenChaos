@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966138e4a15395e4b9244cbc3a278c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   counterTopPoint: {fileID: 1272190598030888381}
   plateKitchenObjectSO: {fileID: 11400000, guid: e0d0f8ec9cfeeb347b281655482c99d2, type: 2}
 --- !u!1001 &3340948476113736413

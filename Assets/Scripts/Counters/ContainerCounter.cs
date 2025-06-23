@@ -1,4 +1,5 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,7 +14,20 @@ public class ContainerCounter : BaseCounter, IKitchenObjectParent
         if (!player.HasKitchenObject())
         {
             KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
-            OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+
+            InteractLogicServerRpc();
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void InteractLogicServerRpc()
+    {
+        InteractLogicClientRpc();
+    }
+
+    [ClientRpc]
+    private void InteractLogicClientRpc()
+    {
+        OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
     }
 }

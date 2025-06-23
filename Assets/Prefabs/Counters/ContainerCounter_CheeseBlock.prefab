@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3241469203871807852, guid: 05e59d29d2b1fe94587f88fb59aa08f6, type: 3}
       propertyPath: m_Name
-      value: ContainerCounter_Cheese
+      value: ContainerCounter_CheeseBlock
       objectReference: {fileID: 0}
     - target: {fileID: 5827673782295691119, guid: 05e59d29d2b1fe94587f88fb59aa08f6, type: 3}
       propertyPath: kitchenObjectSO

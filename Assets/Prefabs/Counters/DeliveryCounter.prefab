@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2fe536e19299214d82dd8e8a90585b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   counterTopPoint: {fileID: 4406114379059700306}
 --- !u!4 &2277982791710829688 stripped
 Transform:

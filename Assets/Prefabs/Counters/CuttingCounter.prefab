@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e635688526178a54292562a90fd5aeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   counterTopPoint: {fileID: 1119220271223856622}
   cuttingRecipeSOArray:
   - {fileID: 11400000, guid: edda35f1ea63721409d8d4bf1b723708, type: 2}
