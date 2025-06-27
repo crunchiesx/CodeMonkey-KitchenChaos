@@ -38,7 +38,6 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
         if (IsOwner)
         {
             LocalInstance = this;
-
         }
 
         transform.position = spawnPositionList[(int)OwnerClientId];

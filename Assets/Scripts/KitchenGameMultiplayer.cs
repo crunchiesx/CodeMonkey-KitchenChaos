@@ -29,7 +29,6 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
-
         if (SceneManager.GetActiveScene().name != Loader.Scene.CharacterSelectScene.ToString())
         {
             response.Approved = false;
@@ -57,7 +56,10 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
     {
-        OnFailedToJoinGame?.Invoke(this, EventArgs.Empty);
+        if (clientId == OwnerClientId)
+        {
+            OnFailedToJoinGame?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public void SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)

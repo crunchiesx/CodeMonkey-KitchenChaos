@@ -1981,7 +1981,7 @@ GameObject:
   - component: {fileID: 271427375}
   - component: {fileID: 271427374}
   m_Layer: 5
-  m_Name: GameOverText
+  m_Name: HostDisconnectText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3199,7 +3199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7c57098f842304d9406fd8730a2f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playAgainButton: {fileID: 0}
+  playAgainButton: {fileID: 961573326}
 --- !u!1 &408956133
 GameObject:
   m_ObjectHideFlags: 0
@@ -8384,7 +8384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1015685711
 RectTransform:
   m_ObjectHideFlags: 0
