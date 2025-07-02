@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ee][Rr][Pp]/
 .erp
 ERP.meta
+/Assets/CodeMonkeyFree/
+CodeMonkeyFree.meta
