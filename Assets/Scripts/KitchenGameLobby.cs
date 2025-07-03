@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mono.CSharp;
-using Unity.Mathematics;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
-using Unity.Networking.Transport.Relay;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Lobbies;
@@ -51,7 +48,7 @@ public class KitchenGameLobby : MonoBehaviour
         if (UnityServices.State != ServicesInitializationState.Initialized)
         {
             InitializationOptions initializationOptions = new InitializationOptions();
-            initializationOptions.SetProfile(UnityEngine.Random.Range(0, 1000).ToString());
+            // initializationOptions.SetProfile(UnityEngine.Random.Range(0, 1000).ToString());
 
             await UnityServices.InitializeAsync(initializationOptions);
 
