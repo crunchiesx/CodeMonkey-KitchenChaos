@@ -56,7 +56,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "KitchenChaos.sln",
+    "dotnet.defaultSolution": "CodeMonkey-KitchenChaos.sln",
     "cSpell.words": [
         "Slerp"
     ]
