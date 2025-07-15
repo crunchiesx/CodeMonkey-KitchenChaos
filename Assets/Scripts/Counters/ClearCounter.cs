@@ -20,7 +20,7 @@ public class ClearCounter : BaseCounter, IKitchenObjectParent
             if (player.HasKitchenObject())
             {   // Player is carrying something
                 if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
-                {   // Plaer is holding a plate
+                {   // Player is holding a plate
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
                         KitchenGameMultiplayer.Instance.DestroyKitchenObject(GetKitchenObject());
