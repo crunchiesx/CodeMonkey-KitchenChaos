@@ -69,7 +69,7 @@ public class DeliveryManager : NetworkBehaviour
             { // Has the same number of ingredients
                 bool plateContentsMatchesRecipe = true;
                 foreach (KitchenObjectSO kitchenObjectSO in waitingRecipeSO.kitchenObjectSOList)
-                { // Cycling through all the ingredients in the pecipe
+                { // Cycling through all the ingredients in the recipe
                     bool ingredientFound = false;
                     foreach (KitchenObjectSO plateKitchenObjectSO in plateKitchenObject.GetKitchenObjectSOList())
                     {   // Cycling through all the ingredients in the plate
