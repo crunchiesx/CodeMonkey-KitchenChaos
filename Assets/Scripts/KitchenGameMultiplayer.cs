@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
+using Unity.Services.Matchmaker.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -40,8 +43,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         if (!playMultiplayer)
         {
-            StartHost();
-            Loader.Load(Loader.Scene.GameScene);
+            KitchenGameLobby.Instance.CreateSinglePlayerGame();
         }
     }
 

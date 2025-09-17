@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
+[RequireComponent(typeof(NetworkObject))]
 public class GameManager : NetworkBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -102,10 +103,20 @@ public class GameManager : NetworkBehaviour
     {
         if (state.Value == State.WaitingToStart)
         {
+            if (!IsSpawned)
+            {
+                Debug.LogWarning("GameManager NetworkObject is not spawned yet");
+                return;
+            }
+
+            if (NetworkManager.Singleton == null || !NetworkManager.Singleton.IsListening)
+            {
+                Debug.LogWarning("NetworkManager is not active");
+                return;
+            }
+
             isLocalPlayerReady = true;
-
             OnLocalPlayerReadyChanged?.Invoke(this, EventArgs.Empty);
-
             SetPlayerReadyServerRpc();
         }
     }

@@ -27,9 +27,18 @@ public class CharacterSelectUI : MonoBehaviour
 
     private void Start()
     {
-        Lobby lobby = KitchenGameLobby.Instance.GetLobby();
+        if (KitchenGameMultiplayer.playMultiplayer)
+        {
+            Lobby lobby = KitchenGameLobby.Instance.GetLobby();
 
-        lobbyNameText.text = $"Lobby Name: {lobby.Name}";
-        lobbyCodeText.text = $"Lobby Code: {lobby.LobbyCode}";
+            lobbyNameText.text = $"Lobby Name: {lobby.Name}";
+            lobbyCodeText.text = $"Lobby Code: {lobby.LobbyCode}";
+        }
+        else
+        {
+            lobbyNameText.gameObject.SetActive(false);
+            lobbyCodeText.gameObject.SetActive(false);
+        }
+
     }
 }

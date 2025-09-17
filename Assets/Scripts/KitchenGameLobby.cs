@@ -16,7 +16,6 @@ public class KitchenGameLobby : MonoBehaviour
 {
     private const string KEY_RELAY_JOIN_CODE = "RelayJoinCode";
 
-
     public static KitchenGameLobby Instance { get; private set; }
 
     public event EventHandler OnCreateLobbyStarted;
@@ -187,6 +186,52 @@ public class KitchenGameLobby : MonoBehaviour
                 new CreateLobbyOptions
                 {
                     IsPrivate = isPrivate,
+                }
+            );
+
+            Allocation allocation = await AllocateRelayAsync();
+            Debug.Log($"Region: {allocation.Region}");
+
+            string relayJoinCode = await GetRelayJoinCodeAsync(allocation);
+
+            await LobbyService.Instance.UpdateLobbyAsync(joinedLobby.Id, new UpdateLobbyOptions
+            {
+                Data = new Dictionary<string, DataObject>
+                {
+                    { KEY_RELAY_JOIN_CODE, new DataObject(DataObject.VisibilityOptions.Member, relayJoinCode)}
+                }
+            });
+
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(allocation.ToRelayServerData("dtls"));
+
+            KitchenGameMultiplayer.Instance.StartHost();
+
+            Loader.LoadNetwork(Loader.Scene.CharacterSelectScene);
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+
+            OnCreateLobbyFailed?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public async void CreateSinglePlayerGame()
+    {
+        OnCreateLobbyStarted?.Invoke(this, EventArgs.Empty);
+
+        string lobbyName = $"Lobby{UnityEngine.Random.Range(0, 100)}";
+        int singleplayerCount = 1;
+
+        try
+        {
+            joinedLobby = await LobbyService.Instance.CreateLobbyAsync
+            (
+                lobbyName,
+                singleplayerCount,
+                new CreateLobbyOptions
+                {
+                    IsPrivate = true,
                 }
             );
 

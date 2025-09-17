@@ -25,14 +25,22 @@ public class MainMenuUI : MonoBehaviour
             KitchenGameMultiplayer.playMultiplayer = true;
             Loader.Load(Loader.Scene.LobbyScene);
         });
-        quitButton.onClick.AddListener(() =>
+
+        if (Application.platform != RuntimePlatform.WebGLPlayer)
         {
+            quitButton.onClick.AddListener(() =>
+            {
 #if UNITY_EDITOR
-            EditorApplication.ExitPlaymode();
+                EditorApplication.ExitPlaymode();
 #else
-            Application.Quit();
+                Application.Quit();
 #endif
-        });
+            });
+        }
+        else
+        {
+            quitButton.gameObject.SetActive(false);
+        }
 
         Time.timeScale = 1f;
     }

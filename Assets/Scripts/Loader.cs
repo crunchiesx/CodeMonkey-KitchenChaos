@@ -10,7 +10,7 @@ public static class Loader
         GameScene,
         LoadingScene,
         LobbyScene,
-        CharacterSelectScene 
+        CharacterSelectScene
     }
 
     private static Scene targetScene;
@@ -18,7 +18,7 @@ public static class Loader
     public static void Load(Scene targetScene)
     {
         Loader.targetScene = targetScene;
-        
+
         SceneManager.LoadScene(Scene.LoadingScene.ToString());
     }
 
